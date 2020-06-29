@@ -15,12 +15,13 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('name');
-            $table->time('time_start');
-            $table->time('time_end');
+            $table->string('name');
+            $table->date('time_start');
+            $table->date('time_end');
             $table->integer('group_id');
             $table->integer('client_id');
             $table->double('pay');
+            $table->string('status');
             $table->timestamps();
         });
     }

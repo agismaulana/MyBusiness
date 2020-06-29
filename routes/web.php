@@ -46,3 +46,8 @@ Route::post('/client/store', 'ClientController@store');
 Route::get('/client/edit/{id}', 'ClientController@edit');
 Route::post('/client/update/{id}', 'ClientController@update');
 Route::get('/client/delete/{id}', 'ClientController@delete');
+
+//project
+Route::get('/project', 'ProjectController@index')->name('project');
+Route::get('/project/create', 'ProjectController@create');
+Route::post('/project/store', 'ProjectController@store');
