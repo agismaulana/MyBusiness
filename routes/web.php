@@ -51,3 +51,9 @@ Route::get('/client/delete/{id}', 'ClientController@delete');
 Route::get('/project', 'ProjectController@index')->name('project');
 Route::get('/project/create', 'ProjectController@create');
 Route::post('/project/store', 'ProjectController@store');
+Route::get('/project/edit/{id}', 'ProjectController@edit');
+Route::post('/project/update/{id}', 'ProjectController@update');
+Route::get('/project/delete/{id}', 'ProjectController@delete');
+
+//meeting 
+Route::get('/meeting', 'MeetingController@index')->name('meeting');

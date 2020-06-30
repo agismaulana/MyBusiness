@@ -17,4 +17,8 @@ class Project extends Model
     public function group() {
         return $this->belongsTo('App\Group');
     }
+
+    public function meeting() {
+        return $this->hasMany('App\Project');
+    }
 }

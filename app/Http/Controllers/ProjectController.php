@@ -30,7 +30,10 @@ class ProjectController extends Controller
         $clients = Client::get();
         $groups = Group::get();
 
-        return view('components.project.createProject', ['clients' => $clients, 'groups' => $groups]);
+        return view('components.project.createProject', [
+            'clients' => $clients, 
+            'groups' => $groups
+        ]);
     }
 
     public function store(Request $request) {
@@ -49,6 +52,40 @@ class ProjectController extends Controller
             'status' => 'confirmed',
         ]);
 
-        return redirect('/project');
+        return redirect('/project')->with([
+            'status' => 'Data Has Been Added'
+        ]);
+    }
+
+    public function edit($id) {
+        $projects = Project::find($id);
+        $clients = Client::get();
+        $groups = Group::get();
+
+        return view('components.project.editProject', [
+            'projects' => $projects,
+            'clients' => $clients,
+            'groups' => $groups,
+        ]);
+    }
+
+    public function update($id, Request $request) {
+        $projects = Project::find($id);
+        $projects->group_id = $request->group;
+        $projects->pay = $request->pay;
+        $projects->save();
+        
+        return redirect('/project')->with([
+            'status' => 'Data Has Been Updated'
+        ]);
+    }
+
+    public function delete($id) {
+        $projects = Project::find($id);
+        $projects->delete();
+
+        return redirect('/project')->with([
+            'status' => 'Data Has Been Deleted'
+        ]);
     }
 }

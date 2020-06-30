@@ -89,7 +89,7 @@
             @yield('content')
         </main>
 
-        <footer class="fixed-bottom text-center my-auto bg-white py-3">
+        <footer class="text-center my-auto bg-white py-3">
             <p>Copyright &copy; My Business <?php echo date('Y')?></p>
         </footer>
     </div>
