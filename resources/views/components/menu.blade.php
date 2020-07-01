@@ -8,6 +8,7 @@
                     Home
                 </a>
             </li>
+            @if(Auth::user()->role_id == 1)
             <li class="nav-item">
                 <a class="nav-link" href="/user">
                     <i class="fa fa-user fa-3x"></i>
@@ -23,17 +24,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/meeting">
-                    <i class="fa fa-handshake-o fa-3x"></i>
-                    <br>
-                    Meeting
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/group">
                     <i class="fa fa-users fa-3x"></i>
                     <br>
                     Group
+                </a>
+            </li>
+            @endif
+            <li class="nav-item">
+                <a class="nav-link" href="/meeting">
+                    <i class="fa fa-handshake-o fa-3x"></i>
+                    <br>
+                    Meeting
                 </a>
             </li>
             <li class="nav-item">

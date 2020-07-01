@@ -16,9 +16,12 @@ class MeetingController extends Controller
     public function index(Request $request) {
 
         $search = $request->search;
-
+        
         if($search) {
-            $meetings = Meeting::where('project_id', 'like', "%". $search ."%")->get();
+            $meetings = 
+                Meeting::where('projects.name', 'like', "%". $search ."%")
+                ->join('projects', 'meetings.project_id', '=', 'projects.id')
+                ->get();
         } else {
             $meetings = Meeting::paginate(5);
         }
